@@ -9,7 +9,7 @@ function App() {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/annotations')
+    fetch('https://human-3qs4.onrender.com/api/annotations')
       .then((response) => response.json())
       .then((data) => setMarkers(data))
       .catch((error) => console.error('Error fetching data:', error));
@@ -28,7 +28,7 @@ function App() {
 
   const handleSubmit = (data) => {
     const newMarker = { ...data, ...clickPosition };
-    fetch('http://localhost:5000/api/annotations', {
+    fetch('https://human-3qs4.onrender.com/api/annotations', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/annotations/${id}`, {
+    fetch(`https://human-3qs4.onrender.com/api/annotations/${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
