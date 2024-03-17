@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   const handleSvgClick = (e) => {
-    if (e.target instanceof SVGElement) {
+    if (e.target.tagName === 'path' || e.target.tagName === 'circle' || e.target.tagName === 'rect') {
       const svg = document.querySelector('.human-svg');
       const rect = svg.getBoundingClientRect();
       const offsetX = e.clientX - rect.left;
@@ -25,6 +25,7 @@ function App() {
       setModalVisible(true);
     }
   };
+  
 
   const handleSubmit = (data) => {
     const newMarker = { ...data, ...clickPosition };
